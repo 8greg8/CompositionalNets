@@ -1,0 +1,119 @@
+DATA:
+  BG_DIR: /data/gregork/workspace/CompositionalNets/background_images
+  CATEGORY:
+  - aeroplane
+  - bicycle
+  - bus
+  - car
+  - motorbike
+  - train
+  CATEGORY_TRAIN:
+  - aeroplane
+  - bicycle
+  - boat
+  - bottle
+  - bus
+  - car
+  - chair
+  - diningtable
+  - motorbike
+  - sofa
+  - train
+  - tvmonitor
+  DATASET: pascal3d+
+  DATASET_TYPE: manual
+  DATA_DIR: /data/gregork/workspace/CompositionalNets/data
+  DEMO_DIR: /data/gregork/workspace/CompositionalNets/demo
+  DICT_DIR: /data/gregork/workspace/CompositionalNets/models/init_vgg/dictionary_vgg
+  DICT_FILE: /data/gregork/workspace/CompositionalNets/models/init_vgg/dictionary_vgg/dictionary_pool5.pickle
+  INIT_DIR: /data/gregork/workspace/CompositionalNets/models/init_vgg
+  MIX_MODEL_DIR: /data/gregork/workspace/CompositionalNets/models/init_vgg/mix_model_vmf_pascal3d+_EM_all
+  MODEL_DIR: /data/gregork/workspace/CompositionalNets/models
+  SIM_DIR: /data/gregork/workspace/CompositionalNets/models/init_vgg/similarity_vgg_pool5_pascal3d+
+GPUS:
+- 0
+- 1
+MODEL:
+  BACKBONE_TYPE: vgg
+  COMPNET_TYPE: vmf
+  LAYER: pool5
+  MIXTURE_NUM: 4
+  OCC_TYPES:
+  - _white
+  - _noise
+  - general
+  VC_NUM: 512
+  VC_THRESHOLD: 0.0
+  VMF_KAPPA: 30
+NAME: default
+TEST:
+  LOAD_OCCLUSION_MASK: true
+  LOAD_PRETRAINED_MODEL: true
+  OCC_LEVELS:
+  - ZERO
+  - ONE
+  - FIVE
+  - NINE
+  OCC_PROB: 0.6
+TRAIN:
+  ALPHA: 3.0
+  BACKBONE_LR_MULT: 1.0
+  BATCHSIZE: 1
+  BETA: 3.0
+  INFO:
+    LOG_FREQUENCY: 10
+    TENSORBOARD: true
+  LOAD_OCCLUSION_MASK: false
+  LOAD_PRETRAINED_MODEL: false
+  LR: 0.01
+  LR_GAMMA: 0.1
+  LR_MILESTONES: []
+  MIX: true
+  NCOORD_IT: 50
+  NUM_EPOCHS: 20
+  OCC_LEVELS:
+  - ZERO
+  OCC_PROB: 0.6
+  VAL_AT_START: false
+  VAL_FREQUENCY: 100
+  VAL_OCCLUSIONS:
+  - ZERO
+  VC: true
+  WITH_OCCLUDERS: false
+VMF:
+  APAD: 90
+  APAD_SET:
+  - 2
+  - 6
+  - 18
+  - 42
+  - 90
+  ARF: 170
+  ARF_SET:
+  - 6
+  - 16
+  - 44
+  - 100
+  - 212
+  ASTRIDE: 16
+  ASTRIDE_SET:
+  - 2
+  - 4
+  - 8
+  - 16
+  - 32
+  BINS: 4
+  FEATDIM_SET:
+  - 64
+  - 128
+  - 256
+  - 512
+  - 512
+  IMG_PER_CAT: 1000
+  LOAD_EXISTING_CLUSTER: false
+  OCC_LEVEL: ZERO
+  OCC_TYPE: ''
+  OFFSET: 3
+  PARAL_NUM: 10
+  SAMP_SIZE_PER_IMG: 20
+  SPECTRAL_SPLIT_THRESH: 0.1
